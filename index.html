@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar parametro na URL</title>
+</head>
+<body>
+    <button onclick="adicionarParametroURL(123)">Adicionar parametro</button>
+
+    <button onclick="limparParametrosURL()">Limpar Parametro</button>
+
+    <script>
+function adicionarParametroURL(id) {
+  var novaURL;
+  var url = window.location.href; 
+
+ 
+  if (url.indexOf('?id=') !== -1) {
+   
+    novaURL = url.replace(/(\?|&)id=\d+/, '$1id=' + id);
+  } else {
+   
+    var separator = url.indexOf('?') !== -1 ? '&' : '?';
+    novaURL = url + separator + 'id=' + id;
+  }
+
+  
+  history.pushState(null, null, novaURL);
+}
+
+function limparParametrosURL() {
+  var novaURL = window.location.href.split('?')[0];  
+  history.pushState(null, null, novaURL);  
+}
+        
+    </script>
+</body>
+</html>
