@@ -1,0 +1,1 @@
+# Adicionar-parametro-na-ulr-not-reload
